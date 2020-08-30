@@ -8,4 +8,8 @@ public class EnemyHealth : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+    private void OnMouseDown()
+    {
+        Kill();
+    }
 }

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            Health health = other.GetComponent<Health>();
+            Health health = other.gameObject.GetComponent<Health>();
             health.RemoveLife();
         }
+    }
+    private void Update()
+    {
+        transform.Translate(Vector2.left * Time.deltaTime * 5f);
     }
 }

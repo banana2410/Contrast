@@ -6,7 +6,7 @@ public class SlowTimePickupable : Pickupable
 {
     public override void OnPickup(Collider2D col)
     {
-        col.GetComponent<TimeController>().SlowTime();
+        col.GetComponent<TimeController>().TriggerSlowTime();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

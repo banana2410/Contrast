@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class FastTimePickupable : Pickupable
 {
+    private float _timer;
     public override void OnPickup(Collider2D col)
     {
-        col.GetComponent<TimeController>().SpeedTime();
+        col.GetComponent<TimeController>().TriggerSlowTime();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
         OnPickup(collision);
+    }
+    private void Update()
+    {
+        transform.Translate(Vector2.left * Time.deltaTime * 2f);
     }
 }

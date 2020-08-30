@@ -8,6 +8,7 @@ public class Pickupable : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            OnPickup(collision);
             gameObject.SetActive(false);
         }
     }
